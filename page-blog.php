@@ -11,114 +11,37 @@ Template Name: Blog Page
         <section class="blog-2 pt-120 pb-115">
             <div class="container">
                 <div class="row">
+                <?php
+                        $loop = new WP_Query(
+                            array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 6 
+                            )
+                        );
+                        while ( $loop->have_posts() ) : $loop->the_post();
+                        // The content you want to loop goes in here:
+                        ?>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-30">
                         <div class="kblog">
                             <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-9.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>20 May</span>
+                                <a href="<?php echo get_permalink();?>">
+                                <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?><img src="<?php echo $featured_img_url; ?>" class="img-fluid" alt="blog-img"></a>
+                                <span><?php echo get_the_date( 'F j' );?></span>
                             </div>
                             <div class="kblog-text">
                                 <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 2 Comments</a>
+                                    
                                 </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">Our Strategy Create Business Growth</a></h3>
+                                <h3 class="kblog-text-title mb-20"><a href="<?php echo get_permalink();?>"><?php the_title();?></a></h3>
                                 <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
+                                    <a href="<?php echo get_permalink();?>">Read more <i class="far fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-30">
-                        <div class="kblog">
-                            <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-10.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>21 May</span>
-                            </div>
-                            <div class="kblog-text">
-                                <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 3 Comments</a>
-                                </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">We work with change oriented executives</a></h3>
-                                <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-30">
-                        <div class="kblog">
-                            <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-11.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>22 May</span>
-                            </div>
-                            <div class="kblog-text">
-                                <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 4 Comments</a>
-                                </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">From banking and insurance to wealth</a></h3>
-                                <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-30">
-                        <div class="kblog">
-                            <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-6.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>23 May</span>
-                            </div>
-                            <div class="kblog-text">
-                                <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 2 Comments</a>
-                                </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">Representation on Digital platforms.</a></h3>
-                                <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-30">
-                        <div class="kblog">
-                            <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-7.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>24 May</span>
-                            </div>
-                            <div class="kblog-text">
-                                <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 3 Comments</a>
-                                </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">Everything to keep in mind when designing</a></h3>
-                                <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 mb-40">
-                        <div class="kblog">
-                            <div class="kblog-img">
-                                <a href="blog-details.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/blog/blog-img-8.jpg" class="img-fluid" alt="blog-img"></a>
-                                <span>24 May</span>
-                            </div>
-                            <div class="kblog-text">
-                                <div class="kblog-meta">
-                                    <a href="blog-details.html"><i class="fal fa-user-circle"></i> by Admin</a>
-                                    <a href="blog-details.html"><i class="fal fa-comments"></i> 3 Comments</a>
-                                </div>
-                                <h3 class="kblog-text-title mb-20"><a href="blog-details.html">A step-by-step adding authentication</a></h3>
-                                <div class="kblog-text-link">
-                                    <a href="blog-details.html">Read more <i class="far fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                    ?>
                 </div>
                 <div class="row">
                     <div class="col-12">

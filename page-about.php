@@ -14,29 +14,24 @@ Template Name: About Page
                     <div class="col-xl-6 col-lg-6">
                         <div class="kintro-text mr-xs-0 mr-md-0 mr-lg-0 mr-70 mb-30" data-aos="fade-left" data-aos-duration="1000">
                             <div class="section-title-wrapper mb-25">
-                                <h5 class="section-subtitle mb-20">get to know us</h5>
-                                <h2 class="section-title mb-35">Our Mission is to
-                                    become the best
-                                    agency</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing available in the market for free uses.</p>
+                                <h5 class="section-subtitle mb-20"><?php the_field('mission_area_sub_title');?></h5>
+                                <h2 class="section-title mb-35"><?php the_field('mission_area_title');?></h2>
+                                <p><?php the_field('mission_area_italic_description');?></p>
                             </div>
-                            <p class="mb-45">Lorem ipsum dolor sit amet nsectetur cing elit. Suspe ndisse suscipit sagittis leo
-                                sit met entum is not estibulum dignissim posuere cubilia durae. Leo sit met entum cubilia crae.
-                                but also the leap into electronic typesetting. 
+                            <p class="mb-45"><?php the_field('mission_area_description');?>
                             </p>
                             <div class="ktrust-btn">
-                                <a href="service.html" class="theme-btn border-btn">Discover more</a>
+                                <a href="<?php the_field('button_link');?>" class="theme-btn border-btn"><?php the_field('button_text');?></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="kintro-img mb-30" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/about-img-6.jpg" class="img-fluid" alt="about-img">
+                            <img src="<?php the_field('mission_area_image');?>" class="img-fluid" alt="about-img">
                             <div class="mission-img-text">
-                                <h4>We’re committed to
-                                    trusted Agency
+                                <h4><?php the_field('mission_area_text');?>
                                 </h4>
-                                <a href="project.html">Get Started</a>
+                                <a href="<?php the_field('link');?>"><?php the_field('link_text');?></a>
                             </div>
                         </div>
                     </div>
@@ -46,89 +41,39 @@ Template Name: About Page
         <!-- mission area end  -->
 
         <!-- testimonial area start here -->
-        <section class="testimonial-area pb-85 pt-85">
+        <section class="testimonial-area pt-115 pb-85">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title-wrapper text-center mb-45">
-                            <h5 class="section-subtitle mb-20">client testimonials</h5>
-                            <h2 class="section-title mb-35">What they say?</h2>
+                            <h5 class="section-subtitle mb-20"><?php the_field('testimonials_sub_title');?></h5>
+                            <h2 class="section-title mb-35"><?php the_field('testimonials_area_title');?></h2>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-active swiper-container">
                     <div class="swiper-wrapper">
+                    <?php if( have_rows('reviews') ): ?>
+                        <?php while( have_rows('reviews') ): the_row(); 
+                            $image = get_sub_field('customer_image');
+                            ?>
                         <div class="ktestimonial mb-30 swiper-slide">
                             <div class="ktestimonial-text">
-                                <p>I was very impresed by the kimox service lorem ipsum is simply free text used by copy typing refreshing. Neque porro est qui dolorem ipsum.</p>
+                                <p><?php the_sub_field('descriptions'); ?></p>
                             </div>
                             <div class="ktestimonial-author">
                                 <div class="ktestimonial-author-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial/testimonial-img-1.jpg" class="img-fluid" alt="client-img">
+                                    <img src="<?php echo $image["url"]; ?>" class="img-fluid" alt="client-img">
                                 </div>
                                 <div class="ktestimonial-author-text">
-                                    <h5 class="uppercase">Jessica Brown</h5>
-                                    <span class="uppercase">Customer</span>
+                                    <h5 class="uppercase"><?php the_sub_field('customer_name'); ?></h5>
+                                    <span class="uppercase"><?php the_sub_field('customer_jobrole'); ?></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="ktestimonial mb-30 swiper-slide">
-                            <div class="ktestimonial-text">
-                                <p>Reliable accessible UI components: :focus styles, content sliders, dark mode, date pickers, navigation, modals, radio buttons Neque porro est qui.</p>
-                            </div>
-                            <div class="ktestimonial-author">
-                                <div class="ktestimonial-author-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial/testimonial-img-2.jpg" class="img-fluid" alt="client-img">
-                                </div>
-                                <div class="ktestimonial-author-text">
-                                    <h5 class="uppercase">Mike Hardson</h5>
-                                    <span class="uppercase">Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ktestimonial mb-30 swiper-slide">
-                            <div class="ktestimonial-text">
-                                <p>Useful CSS tools for animations, border-radius, CSS shadows, cubic-bezier curves, easing gradients, filters, placeholders, CSS Grid.</p>
-                            </div>
-                            <div class="ktestimonial-author">
-                                <div class="ktestimonial-author-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial/testimonial-img-3.jpg" class="img-fluid" alt="client-img">
-                                </div>
-                                <div class="ktestimonial-author-text">
-                                    <h5 class="uppercase">Sarah Albert</h5>
-                                    <span class="uppercase">Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ktestimonial mb-30 swiper-slide">
-                            <div class="ktestimonial-text">
-                                <p>I was very impresed by the kimox service lorem ipsum is simply free text used by copy typing refreshing. Neque porro est qui dolorem ipsum.</p>
-                            </div>
-                            <div class="ktestimonial-author">
-                                <div class="ktestimonial-author-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial/testimonial-img-4.jpg" class="img-fluid" alt="client-img">
-                                </div>
-                                <div class="ktestimonial-author-text">
-                                    <h5 class="uppercase">Melinda Brown</h5>
-                                    <span class="uppercase">Customer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ktestimonial mb-30 swiper-slide">
-                            <div class="ktestimonial-text">
-                                <p>Core Web Vitals, CrUX, Lighthouse, performance budgets, CSS & JavaScript performance, assets optimizations, build optimizations.</p>
-                            </div>
-                            <div class="ktestimonial-author">
-                                <div class="ktestimonial-author-img">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/testimonial/testimonial-img-5.jpg" class="img-fluid" alt="client-img">
-                                </div>
-                                <div class="ktestimonial-author-text">
-                                    <h5 class="uppercase">Andrew Tye</h5>
-                                    <span class="uppercase">Customer</span>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -136,10 +81,10 @@ Template Name: About Page
         <!-- testimonial area end here -->
 
         <!-- fact area start here -->
-        <section class="fact-area pb-85" data-background="<?php echo get_template_directory_uri(); ?>/assets/img/bg/fact-bg.jpg">
+        <section class="fact-area pb-85" data-background="<?php the_field('facts_area_background_image');?>">
             <div class="container">
                 <div class="fun-fact text-center pb-80">
-                    <span>Our fun facts</span>
+                    <span><?php the_field('fact_area_title');?></span>
                 </div>
             </div>
             <div class="container">
@@ -195,17 +140,19 @@ Template Name: About Page
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="choose-left mb-40 mr-xs-0 mr-md-0 mr-lg-0 mr-90" data-aos="fade-up-right" data-aos-duration="1000">
                             <div class="section-title-wrapper">
-                                <h5 class="section-subtitle mb-20">All Categories List</h5>
-                                <h2 class="section-title mb-35">Why Choose our agency</h2>
+                                <h5 class="section-subtitle mb-20"><?php the_field('about_area_sub_title');?></h5>
+                                <h2 class="section-title mb-35"><?php the_field('about_area_title');?></h2>
                             </div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
+                            <p><?php the_field('about_area_description');?>
                             </p>
                             <div class="why-tab-list">
-                                <ul>
-                                    <li><i class="fal fa-check"></i>Refresing to get such a personal touch.</li>
-                                    <li><i class="fal fa-check"></i>Duis aute irure dolor in reprehenderit in voluptate.</li>
-                                    <li><i class="fal fa-check"></i>Velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                                </ul>
+                            <?php if( have_rows('about_area_points') ): ?>
+                            <ul>
+                            <?php while( have_rows('about_area_points') ): the_row();?>
+                                <li><i class="fal fa-check"></i>R<?php the_sub_field('points'); ?></li> 
+                            <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -271,81 +218,25 @@ Template Name: About Page
             <div class="container">
                 <div class="team-active2 swiper-container">
                     <div class="swiper-wrapper">
+                    <?php if( have_rows('our_team') ): ?>
+                    <?php while( have_rows('our_team') ): the_row(); 
+                        $image = get_sub_field('profile_image');
+                        ?>
                         <div class="kteam swiper-slide mb-30">
-                            <div class="kteam-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/team/team-img-1.jpg" class="img-fluid" alt="team-img">
-                                <div class="kteam-img-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="kteam-text text-center">
-                                <h4 class="kteam-title">sarah albert</h4>
-                                <span class="uppercase">designer</span>
-                            </div>
-                        </div>
-                        <div class="kteam swiper-slide mb-30">
-                            <div class="kteam-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/team/team-img-2.jpg" class="img-fluid" alt="team-img">
-                                <div class="kteam-img-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="kteam-text text-center">
-                                <h4 class="kteam-title">Mike Hardson</h4>
-                                <span class="uppercase">developer</span>
-                            </div>
-                        </div>
-                        <div class="kteam swiper-slide mb-30">
-                            <div class="kteam-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/team/team-img-3.jpg" class="img-fluid" alt="team-img">
-                                <div class="kteam-img-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="kteam-text text-center">
-                                <h4 class="kteam-title">Christine eve</h4>
-                                <span class="uppercase">Programmer</span>
-                            </div>
-                        </div>
-                        <div class="kteam swiper-slide mb-30">
-                            <div class="kteam-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/team/team-img-4.jpg" class="img-fluid" alt="team-img">
-                                <div class="kteam-img-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="kteam-text text-center">
-                                <h4 class="kteam-title">John Smith</h4>
-                                <span class="uppercase">artist</span>
-                            </div>
-                        </div>
-                        <div class="kteam swiper-slide mb-30">
-                            <div class="kteam-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/team/team-img-5.jpg" class="img-fluid" alt="team-img">
-                                <div class="kteam-img-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="kteam-text text-center">
-                                <h4 class="kteam-title">melinda albert</h4>
-                                <span class="uppercase">writter</span>
-                            </div>
-                        </div>
+                                            <div class="kteam-img">
+                                                <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="team-img">
+                                                
+                                            </div>
+                                            <div class="kteam-text text-center">
+                                                <h4 class="kteam-title"><?php the_sub_field('name'); ?></h4>
+                                                <span class="uppercase"><?php the_sub_field('role'); ?></span>
+                                            </div>
+                                        </div>
+                        
+                    <?php endwhile; ?>
+                    
+                <?php endif; ?>
+                
                     </div>
                 </div>
             </div>
@@ -353,28 +244,23 @@ Template Name: About Page
         <!-- team area end here -->
 
         <!-- brand area end here -->
-        <div class="brand-area2 bg-grey pt-100 pb-100">
+        <div class="brand-area pt-100 pb-100">
             <div class="container">
                 <div class="brand-active swiper-container">
                     <div class="swiper-wrapper align-items-center">
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".3s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-1.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".6s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-2.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".9s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-3.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.2s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-4.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.5s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-5.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.8s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-1.png" class="img-fluid" alt="img"></a>
-                        </div>
+                    <?php if( have_rows('brand_slider') ): ?>
+   
+                        <?php while( have_rows('brand_slider') ): the_row(); 
+                            $image = get_sub_field('brand_image');
+                            ?>
+                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".3s" data-swiper-autoplay="10000">
+                            <a href="#"><img src="<?php echo $image['url']; ?>" class="img-fluid" alt="img"></a>
+                            </div>
+                        <?php endwhile; ?>
+                    
+                    <?php endif; ?>
+                        
+                        
                     </div>
                 </div>
             </div>

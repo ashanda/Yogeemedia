@@ -11,54 +11,34 @@ Template Name: Services Page
         <section class="service-2 pt-120 pb-90">
             <div class="container">
                 <div class="row">
+                <?php
+                        $loop = new WP_Query(
+                            array(
+                                'post_type' => 'service',
+                                'posts_per_page' => 4 
+                            )
+                        );
+                        while ( $loop->have_posts() ) : $loop->the_post();
+                        // The content you want to loop goes in here:
+                        ?>
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="kservice-2 mb-30 wow fadeInUp" data-wow-duration=".3s">
                             <div class="kservice-text-2">
                                 <span>Services</span>
-                                <h4 class="kservice-title-2"><a href="service-details.html">Website <br>Development</a></h4>
-                                <i class="flaticon-stats"></i>
+                                <h4 class="kservice-title-2"><a href="<?php echo get_permalink();?>"><?php the_field('service_page_title');?></a></h4>
+                                
                             </div>
                             <div class="kservice-img-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/service/service-img-1.jpg" class="img-fluid" alt="service-img">
+                                <img src="<?php the_field('service_image_in_service_page');?>" class="img-fluid" alt="service-img">
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-sm-6">
-                        <div class="kservice-2 mb-30 wow fadeInUp" data-wow-duration=".6s">
-                            <div class="kservice-text-2">
-                                <span>Services</span>
-                                <h4 class="kservice-title-2"><a href="service-details.html">Graphic <br>designing</a></h4>
-                                <i class="flaticon-digital-marketing"></i>
-                            </div>
-                            <div class="kservice-img-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/service/service-img-2.jpg" class="img-fluid" alt="service-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-sm-6">
-                        <div class="kservice-2 mb-30 wow fadeInUp" data-wow-duration=".9s">
-                            <div class="kservice-text-2">
-                                <span>Services</span>
-                                <h4 class="kservice-title-2"><a href="service-details.html">SEO & Content <br>writting</a></h4>
-                                <i class="flaticon-website"></i>
-                            </div>
-                            <div class="kservice-img-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/service/service-img-3.jpg" class="img-fluid" alt="service-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-sm-6">
-                        <div class="kservice-2 mb-30 wow fadeInUp" data-wow-duration="1s">
-                            <div class="kservice-text-2">
-                                <span>Services</span>
-                                <h4 class="kservice-title-2"><a href="service-details.html">digital <br>marketing</a></h4>
-                                <i class="flaticon-idea"></i>
-                            </div>
-                            <div class="kservice-img-2">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/service/service-img-4.jpg" class="img-fluid" alt="service-img">
-                            </div>
-                        </div>
-                    </div>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                    ?>
+                   
+                   
+                   
                 </div>
             </div>
         </section>

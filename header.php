@@ -107,7 +107,7 @@
                                     <a class="search-btn nav-search search-trigger" href="#"><i class="far fa-search"></i></a>
                                 </div>
                                 <div class="header-btn">
-                                    <a href="about.html" class="theme-btn theme-btn-small">Free Estimate</a>
+                                    <a href="<?php echo get_home_url(); ?>" class="theme-btn theme-btn-small">Free Estimate</a>
                                 </div>
                             </div>
                         </div>

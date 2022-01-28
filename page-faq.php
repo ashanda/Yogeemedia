@@ -170,35 +170,13 @@ Template Name: Faq Page
                 <div class="row">
                     <div class="col-12">
                         <div class="faq-form-title-wrapper text-center">
-                            <h3 class="faq-form-title">Still stuck ask directly</h3>
+                            <h3 class="faq-form-title"><?php the_field('contact_form_title');?></h3>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <div class="contact-form">
-                            <form action="mail.php" id="contact-form" method="POST">
-                                <div class="row">
-                                    <div class="col-xxl-6 col-xl-6 col-md-6 mb-20">
-                                        <input name="name" type="text" placeholder="Your Name">
-                                    </div>
-                                    <div class="col-xxl-6 col-xl-6 col-md-6 mb-20">
-                                        <input name="email" type="email" placeholder="Email Adress">
-                                    </div>
-                                    <div class="col-xxl-6 col-xl-6 col-md-6 mb-20">
-                                        <input name="phone" type="text" placeholder="Phone">
-                                    </div>
-                                    <div class="col-xxl-6 col-xl-6 col-md-6 mb-20">
-                                        <input name="subject" type="text" placeholder="Subject">
-                                    </div>
-                                    <div class="col-xxl-12 col-xl-12 col-md-12 mb-20">
-                                        <textarea placeholder="Write Massage" name="massage" cols="30" rows="9"></textarea>
-                                    </div>
-                                    <div class="col-xxl-12 col-xl-12 mb-20">
-                                        <button type="submit" class="theme-btn border-btn">Send a message</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <?php echo do_shortcode('[contact-form-7 id="207" title="Contact us"]');?>
                             <p class="ajax-response"></p>
                         </div>
                     </div>

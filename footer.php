@@ -53,10 +53,9 @@
                             <h4 class="widget-title mb-30"><?php the_field('block_04_title','option');?></h4>
                             <p class="mb-20"><?php the_field('block_04_description','option');?></p>
                             <div class="widget-newsletter">
-                                <form action="#">
-                                    <input type="email" placeholder="Email Address">
-                                    <button type="submit">Send</button>
-                                </form>
+                                
+                                    <?php echo do_shortcode('[contact-form-7 id="211" title="Newsletter"]');?>
+                                
                             </div>
                         </div>
                     </div>

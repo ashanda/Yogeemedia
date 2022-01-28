@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/responsive.css">
 
-    <title><?php bloginfo('name'); ?>/title>
+    <title><?php bloginfo('name'); ?></title>
 	<?php wp_head(); ?>
 </head>
 

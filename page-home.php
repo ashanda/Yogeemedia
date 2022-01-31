@@ -338,15 +338,18 @@ Template Name: Home Page
             <div class="container">
                 <div class="brand-active swiper-container">
                     <div class="swiper-wrapper align-items-center">
-                    <?php if( have_rows('brand_slider') ): ?>
-   
+                    <?php if( have_rows('brand_slider') ):
+                        $i=0; ?>
+                        
                         <?php while( have_rows('brand_slider') ): the_row(); 
                             $image = get_sub_field('brand_image');
                             ?>
-                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".3s" data-swiper-autoplay="10000">
+                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".<?php echo $i;?>s" data-swiper-autoplay="10000">
                             <a href="#"><img src="<?php echo $image['url']; ?>" class="img-fluid" alt="img"></a>
                             </div>
-                        <?php endwhile; ?>
+                        <?php 
+                        $i++;
+                    endwhile; ?>
                     
                     <?php endif; ?>
                         

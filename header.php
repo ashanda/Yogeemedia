@@ -98,16 +98,19 @@
                         <div class="col-xl-4 d-none d-xl-block">
                             <div class="header-right text-end">
                                 <div class="header-social">
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <?php if( have_rows('social_media','option') ): ?>
+                                    
+                                    <?php while( have_rows('social_media','option') ): the_row(); ?>
+                                        <a href="<?php the_sub_field('social_link'); ?>" target="_blank"><i class="fab <?php the_sub_field('social_icon'); ?>"></i></a>
+                                    <?php endwhile; ?>
+                                    
+                                <?php endif; ?>
                                 </div>
                                 <div class="header-search">
                                     <a class="search-btn nav-search search-trigger" href="#"><i class="far fa-search"></i></a>
                                 </div>
                                 <div class="header-btn">
-                                    <a href="<?php echo get_home_url(); ?>" class="theme-btn theme-btn-small">Free Estimate</a>
+                                    <a href="<?php echo get_home_url(); ?>/contact-us/" class="theme-btn theme-btn-small">Free Estimate</a>
                                 </div>
                             </div>
                         </div>

@@ -25,10 +25,13 @@
                             </div>
                             <p class="mb-20 pr-35"><?php the_field('block_01_description','option');?></p>
                             <div class="footer-social">
-                                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <?php if( have_rows('social_media','option') ): ?>
+                                    
+                                    <?php while( have_rows('social_media','option') ): the_row(); ?>
+                                        <a href="<?php the_sub_field('social_link'); ?>" target="_blank"><i class="fab <?php the_sub_field('social_icon'); ?>"></i></a>
+                                    <?php endwhile; ?>
+                                    
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

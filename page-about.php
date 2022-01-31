@@ -159,42 +159,34 @@ Template Name: About Page
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="choose-right" data-aos="fade-left" data-aos-duration="1000">
                             <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        How to process the funtion for development?
+                            <?php if( have_rows('about_area_accordion') ): 
+                                $i=0; 
+                                $area;
+                                $show;
+                                $collapsed;?>
+                                
+                                <?php while( have_rows('about_area_accordion') ): the_row(); 
+                                 
+                                 ?>
+                                 <div class="accordion-item">
+                                  <h2 class="accordion-header" id="heading<?php echo $i;?>">
+                                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $i;?>" aria-expanded=<?php echo $area;?> aria-controls="collapse<?php echo $i;?>">
+                                    <?php the_sub_field('question'); ?>
                                     </button>
                                   </h2>
-                                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                  <div id="collapse<?php echo $i;?>" class="accordion-collapse collapse <?php echo $show;?>" aria-labelledby="heading<?php echo $i;?>" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <p>There are many variations of passages of available but the majority have suffered alteration in that some form by injected randomised words which don’t look even as slightly believable.</p>
+                                        <p><?php the_sub_field('answer'); ?></p>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Where should I incorporate my business?
-                                    </button>
-                                  </h2>
-                                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>Web fonts are often terrible for web performance and none of the font loading strategies are particularly effective to address that. Upcoming font options may finally deliver on the promise.</p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        How there are many variations of passages
-                                    </button>
-                                  </h2>
-                                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>Front-end and design are remarkably complex these days. That’s why we invite kind, smart folks from the community to run online workshops for all of us to learn together. And we have new ones.</p>
-                                    </div>
-                                  </div>
-                                </div>
+                                <?php 
+                                $i++;
+                            endwhile; ?>
+                            <?php endif; ?>
+                                
+
+                              
                               </div>
                         </div>
                     </div>
@@ -248,15 +240,18 @@ Template Name: About Page
             <div class="container">
                 <div class="brand-active swiper-container">
                     <div class="swiper-wrapper align-items-center">
-                    <?php if( have_rows('brand_slider') ): ?>
-   
+                    <?php if( have_rows('brand_slider') ):
+                        $i=0; ?>
+                        
                         <?php while( have_rows('brand_slider') ): the_row(); 
                             $image = get_sub_field('brand_image');
                             ?>
-                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".3s" data-swiper-autoplay="10000">
+                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".<?php echo $i;?>s" data-swiper-autoplay="10000">
                             <a href="#"><img src="<?php echo $image['url']; ?>" class="img-fluid" alt="img"></a>
                             </div>
-                        <?php endwhile; ?>
+                        <?php 
+                        $i++;
+                    endwhile; ?>
                     
                     <?php endif; ?>
                         

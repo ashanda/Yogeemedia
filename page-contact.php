@@ -60,7 +60,8 @@ Template Name: Contact us Page
         <!-- contact area end -->
 
         <!-- cta area  -->
-        <section class="cta-area mb--60 z-index aos-init aos-animate fix" data-aos="fade-up">
+        <!-- cta area start here -->
+        <section class="cta-area mt--60 z-index" data-aos="fade-up">
             <div class="container">
                 <div class="cta-bg bg-theme">
                     <div class="cta-number">
@@ -68,21 +69,19 @@ Template Name: Contact us Page
                             <i class="flaticon-reaction"></i>
                         </div>
                         <div class="cta-number-text fix">
-                            <span class="uppercase">Get a Free Consultation</span>
-                            <h3><a href="tell:<?php the_field('telephone_number','option');?>"><?php the_field('telephone_number','option');?></a></h3>
+                            <span class="uppercase"><?php the_field('contact_area_title');?></span>
+                            <h3><a href="tell:<?php the_field('telephone_number','option')?>"><?php the_field('telephone_number','option')?></a></h3>
                         </div>
                     </div>
                     <div class="cta-description">
-                        <p>Lorem ipsum dolor sit amet nsectetur
-                            cing elituspe ndisse suscipit.</p>
+                        <p><?php the_field('contact_area_description');?></p>
                     </div>
                     <div class="cta-btn text-lg-end text-start">
-                        <a href="service.html" class="theme-btn black-btn">Discover more</a>
+                        <a href="<?php the_field('contact_area_button_link');?>" class="theme-btn black-btn"><?php the_field('contact_area_button_text');?></a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- cta area end  -->
 
         <!-- contact map area  -->
         <div class="contact-map">

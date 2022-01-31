@@ -53,19 +53,18 @@ Template Name: Services Page
                 <div class="row justify-content-between">
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="provide-thumb">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/about-img-7.jpg" alt="">
+                            <img src="<?php the_field('about_area_image');?>" alt="">
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="provide-content">
                             <div class="section-title-wrapper mb-25">
-                                <h5 class="section-subtitle mb-20">All Categories List</h5>
-                                <h2 class="section-title mb-35">We provide a best <br>
-                                    services
+                                <h5 class="section-subtitle mb-20"><?php the_field('about_area_sub_title');?></h5>
+                                <h2 class="section-title mb-35"><?php the_field('about_area_title');?>
                                 </h2>
-                                <p>There are many variations of pass of lorem ipsum available but the majority have suffered alteration in some form.</p>
+                                <p><?php the_field('about_area_italic_description');?></p>
                             </div>
-                            <p>Injected humour randomised words which don't look even slightly believable you need to be sure there isn't anything embarrassing.</p>
+                            <p><?php the_field('about_area_description');?></p>
                         </div>
                     </div>
                 </div>
@@ -74,18 +73,18 @@ Template Name: Services Page
         <!-- about area end here -->
 
         <!-- service area start here -->
-        <section class="service-area service-area2 pt-115 pb-100" data-background="<?php echo get_template_directory_uri(); ?>/assets/img/service/service-bg.jpg">
+        <section class="service-area service-area2 pt-115 pb-100" data-background="<?php the_field('service_area_background_image');?>">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-xxl-6 col-lg-6">
                         <div class="kservice-text mb-50 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
-                            <h5 class="kservice-text-subtitle mb-15">All Categories List</h5>
-                            <h2 class="kservice-text-title mb-40">The Services <br>We’re Offering</h2>
+                            <h5 class="kservice-text-subtitle mb-15"><?php the_field('service_area_sub_title');?></h5>
+                            <h2 class="kservice-text-title mb-40"><?php the_field('service_area_title');?></h2>
                         </div>
                     </div>
                     <div class="col-xxl-5 col-lg-6">
                         <div class="kservice-text mb-50 aos-init aos-animate" data-aos="fade-right" data-aos-duration="1000">
-                            <p class="mb-45 mt-35 mt-md-0 mt-xs-0">There are many variations of passages of lorem ipsum available but the majority have suffered alteration in some form by injected humour.</p>
+                            <p class="mb-45 mt-35 mt-md-0 mt-xs-0"><?php the_field('service_area_description');?></p>
                         </div>
                     </div>
                 </div>
@@ -137,60 +136,59 @@ Template Name: Services Page
         <!-- service area end here -->
 
         <!-- brand area end here -->
-        <div class="brand-area3  pt-100 pb-100">
+        <div class="brand-area pt-100 pb-100">
             <div class="container">
                 <div class="brand-active swiper-container">
                     <div class="swiper-wrapper align-items-center">
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".3s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-1.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".6s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-2.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".9s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-3.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.2s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-4.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.5s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-5.png" class="img-fluid" alt="img"></a>
-                        </div>
-                        <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay="1.8s" data-swiper-autoplay="10000">
-                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand/brand-1.png" class="img-fluid" alt="img"></a>
-                        </div>
+                    <?php if( have_rows('brand_slider') ):
+                        $i=0; ?>
+                        
+                        <?php while( have_rows('brand_slider') ): the_row(); 
+                            $image = get_sub_field('brand_image');
+                            ?>
+                            <div class="brand-wrapper swiper-slide wow fadeInUp" data-wow-delay=".<?php echo $i;?>s" data-swiper-autoplay="10000">
+                            <a href="#"><img src="<?php echo $image['url']; ?>" class="img-fluid" alt="img"></a>
+                            </div>
+                        <?php 
+                        $i++;
+                    endwhile; ?>
+                    
+                    <?php endif; ?>
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- service area end-->
+        <!-- brand area start here -->
 
+        
         <!-- quality area start here -->
         <section class="quality-area pt-120 pb-90 fix">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-8 col-md-9">
-                        <div class="kquality mb-30 aos-init aos-animate" data-aos="zoom-in-right">
+                    <div class="col-lg-8">
+                        <div class="kquality mb-30" data-aos="zoom-in-right">
                             <div class="kquality-icon">
                                 <i class="flaticon-website"></i>
                             </div>
                             <div class="kquality-text fix">
-                                <h3 class="mb-20 kquality-text-title">We Deliver the Best Quality</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour words.</p>
+                                <h3 class="mb-20 kquality-text-title"><?php the_field('qulity_area_title');?></h3>
+                                <p><?php the_field('qulity_area_description');?></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-3">
-                        <div class="text-lg-end mb-30 aos-init aos-animate" data-aos="zoom-in-left">
+                    <div class="col-lg-4">
+                        <div class="text-lg-end mb-30" data-aos="zoom-in-left">
                             <div class="kquality-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/trust/cta-img.jpg" class="img-fluid" alt="cta-img">
+                                <img src="<?php the_field('qulity_area_image');?>" class="img-fluid" alt="cta-img">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- quality area start here -->
+        <!-- quality area end here -->
     </main>
 
 <?php get_footer(); ?>	
